@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-top {
+            width: 100%;
+            padding: 1.3rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .team-logo {
+            display: flex;
+            align-items: baseline;
+        }
+        .logo-t-image-area {
+            width: 3rem;
+            height: 3rem;
+        }
+        .logo-t {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/logo-t.png);
+            background-size: cover;
+        }
+        .logo-o-image-area {
+            width: 2rem;
+            height: 2rem;
+        }
+        .logo-o {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/logo-o.png);
+            background-size: cover;
+        }
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--main-color);
+        }
+
+        /* 사용자 메뉴 */
+        .user-menu {
+            width: 10%;
+            padding: 0.5rem;
+        }
+
+        .menu-list {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* 네비게이션 메뉴 */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-menu {
+            width: 70%;
+        }
+
+        .product-menu li {
+            font-size: 2rem;
+            line-height: 2.5rem;
+            color: var(--main-color);
+            transition: all .3s ease-in-out;
+        }
+        /* 메뉴에 호버했을 때 */
+        .product-menu li:hover {
+            cursor: pointer;
+            color: var(--strong-color);
+        }
+
+        /* 메뉴의 li 요소의 마지막 자식으로 가상요소 생성! */
+        .product-menu li::after {
+            content: "";
+            padding: 0.1rem;
+            width: 100%;
+            transform: scaleX(0);
+            transition: all .3s ease-in-out;
+            background-color: var(--strong-color);
+        }
+        
+        /* 메뉴에 호버했을 때 가상요소에 적용되는 효과 지정! */
+        .product-menu li:hover::after {
+            transform: scaleX(1);
+        }
+
+        .product-menu p {
+            font-size: 1.3rem;
+        }
+
+        /* 메인 */
+        .list-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.3rem 1rem;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+        .list-header p:nth-last-child(1) {
+            font-size: 1rem;
+            color: var(--sub-strong-color);
+        }
+        .list-header p:nth-last-child(1):hover {
+            cursor: pointer;
+        }
+
+        .list-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .list-content .list-item {
+            width: 20%;
+            height: 20rem;
+        }
+
+        .list-item-image {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .list-item-image img {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            border-radius: 1rem;
+        }
+        .list-item-text {
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            bottom: 0;
+            padding: 0.5rem;
+            min-height: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 1rem;
+            color: var(--bg-color);
+        }
+        .list-item-text-title {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.1rem;
+        }
+
+        .list-item-text-title span:nth-child(2) {
+            align-self: flex-end;
+            font-size: 0.9rem;
+        }
+
+        .list-item-text-content {
+            font-size: 0.8rem;
+        }
+
+        /* 푸터 */
+        footer {
+            width: 100%;
+            background: var(--main-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        .team-name {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .team-member-git-icon {
+            width: 100%;
+            color: var(--bg-color);
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .team-member-list {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 2rem 3rem;
+            color: var(--bg-color);
+        }
+
+        .copyright {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member-list a,
+        .copyright a {
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header>
+            <div class="header-top">
+                <div class="team-logo">
+                    <div class="logo-t-image-area"><div class="logo-t"></div></div>
+                    <span class="logo-text">rip:L</span>
+                    <div class="logo-o-image-area"><div class="logo-o"></div></div>
+                    <span class="logo-text">g</span>
+                </div>
+                <div class="user-menu">
+                    <ul class="menu-list">
+                        <li>
+                            <i class="fa-solid fa-user"></i>
+                            <p>My</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                            <p>찜</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav>
+                <ul class="menu-list product-menu">
+                    <li data-url="">
+                        <i class="fa-solid fa-users"></i>
+                        <p>커뮤니티</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>여행상품</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        <p>여행지투표</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-calculator"></i>
+                        <p>여행경비계산기</p>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container mb-5">
+            <div class="board-list">
+                <div class="list-header">
+                    <p>
+                        <span style="color: var(--icon-strong-color)">
+                            <i class="fa-solid fa-crown"></i>
+                            인기
+                        </span> 
+                        여행 후기
+                    </p>
+                    <p>
+                        더보기 <i class="fa-solid fa-arrow-right"></i>
+                    </p>
+                </div>
+                <div class="list-content">
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img1.jpg">
+                            <span class="list-item-text">
+                                <p class="list-item-text-title">
+                                    <span>Title</span><span>25.04.02~25.04.02(00일)</span>
+                                </p>
+                                <p class="list-item-text-content">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img2.jpg">
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img3.jpg">
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img4.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="team-info">
+                    <p class="team-name">Trip:Log</p>
+                    <p><span>Copyright&copy;</span> <span>I UNION I</span></p>
+                </div>
+                <!-- 이름 목록 -->
+                <div class="team-member-info">
+                    <div class="team-member-git-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <ul class="team-member-list">
+                        <li><a href="https://github.com/Kim-ilhyeon">김일현</a></li>
+                        <li><a href="https://github.com/noseungjae">노승재</a></li>
+                        <li><a href="https://github.com/Tokemo">안민영</a></li>
+                        <li><a href="https://github.com/yoonseo0832">이윤서</a></li>
+                        <li><a href="https://github.com/Seong-Jun1525">임성준</a></li>
+                        <li><a href="https://github.com/vocoxo9">정혜영</a></li>
+                    </ul>
+                </div>
+
+                <div class="copyright">
+                    <a href="https://www.flaticon.com/kr/free-icons/" title="야자수 아이콘">야자수 아이콘 제작자: RIkas Dzihab - Flaticon</a>
+                    <a href="https://www.flaticon.com/kr/free-icons/" title="여행 아이콘">여행 아이콘 제작자: Freepik - Flaticon</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
