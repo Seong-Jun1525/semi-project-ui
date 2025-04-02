@@ -71,6 +71,10 @@
             font-weight: 700;
         }
 
+        .menu-list li:hover {
+            cursor: pointer;
+        }
+
         /* 네비게이션 메뉴 */
         nav {
             display: flex;
@@ -113,14 +117,31 @@
             font-size: 1.3rem;
         }
 
+        /* 배너 */
+        .banner {
+            width: 100%;
+            height: 40vh;
+            background-image: url(./images/sample1.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 1rem;
+        }
+
         /* 메인 */
+        .board-list,
+        .product-list,
+        .rank {
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
         .list-header {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 1.3rem 1rem;
-            font-size: 1.3rem;
+            font-size: 2rem;
             font-weight: 900;
         }
         .list-header p:nth-last-child(1) {
@@ -135,7 +156,6 @@
             width: 100%;
             display: flex;
             justify-content: space-around;
-
         }
 
         .list-content .list-item {
@@ -168,11 +188,13 @@
             background: rgba(0, 0, 0, 0.7);
             border-radius: 1rem;
             color: var(--bg-color);
+            backdrop-filter: blur(1rem); /* 백그라운드 블러 효과 */
         }
         .list-item-text-title {
             display: flex;
             flex-direction: column;
             font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
 
         .list-item-text-title span:nth-child(2) {
@@ -182,6 +204,35 @@
 
         .list-item-text-content {
             font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .list-item-text-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .list-item-text-footer span:nth-child(1) {
+            margin-right: 0.3rem;
+        }
+
+        .list-item-product-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .list-item-product-name {
+            font-size: 1.5rem;
+        }
+        .list-item-product-avg {
+            align-self: flex-end;
+            font-size: 1rem;
+        }
+        .list-item-product-avg i {
+            color: var(--icon-strong-color);
+        }
+        .list-item-product-price {
+            align-self: flex-end;
+            font-weight: 700;
         }
 
         /* 푸터 */
@@ -191,6 +242,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 5rem;
         }
 
         .team-info {
@@ -251,11 +303,11 @@
                 </div>
                 <div class="user-menu">
                     <ul class="menu-list">
-                        <li>
+                        <li data-url="">
                             <i class="fa-solid fa-user"></i>
                             <p>My</p>
                         </li>
-                        <li>
+                        <li data-url="">
                             <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
                             <p>찜</p>
                         </li>
@@ -284,6 +336,9 @@
                 </ul>
             </nav>
         </header>
+
+        <div class="banner"></div>
+
         <div class="container mb-5">
             <div class="board-list">
                 <div class="list-header">
@@ -309,24 +364,178 @@
                                 <p class="list-item-text-content">
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
                                 </p>
+                                <p class="list-item-text-footer">
+                                    <span>
+                                        <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                                        <span>99개</span>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-comment"></i>
+                                        <span>99개</span>
+                                    </span>
+                                </p>
                             </span>
                         </div>
                     </div>
                     <div class="list-item">
                         <div class="list-item-image">
                             <img src="./images/board-img2.jpg">
+                            <span class="list-item-text">
+                                <p class="list-item-text-title">
+                                    <span>Title</span><span>25.04.02~25.04.02(00일)</span>
+                                </p>
+                                <p class="list-item-text-content">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+                                </p>
+                                <p class="list-item-text-footer">
+                                    <span>
+                                        <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                                        <span>99개</span>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-comment"></i>
+                                        <span>99개</span>
+                                    </span>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img3.jpg">
+                            <span class="list-item-text">
+                                <p class="list-item-text-title">
+                                    <span>Title</span><span>25.04.02~25.04.02(00일)</span>
+                                </p>
+                                <p class="list-item-text-content">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+                                </p>
+                                <p class="list-item-text-footer">
+                                    <span>
+                                        <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                                        <span>99개</span>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-comment"></i>
+                                        <span>99개</span>
+                                    </span>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img4.jpg">
+                            <span class="list-item-text">
+                                <p class="list-item-text-title">
+                                    <span>Title</span><span>25.04.02~25.04.02(00일)</span>
+                                </p>
+                                <p class="list-item-text-content">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ...
+                                </p>
+                                <p class="list-item-text-footer">
+                                    <span>
+                                        <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                                        <span>99개</span>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-comment"></i>
+                                        <span>99개</span>
+                                    </span>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="list-header">
+                    <p>
+                        <span style="color: var(--icon-strong-color)">
+                            <i class="fa-solid fa-crown"></i>
+                            지금
+                        </span> 
+                        이 기회를 놓치지 마세요!
+                    </p>
+                    <p>
+                        더보기 <i class="fa-solid fa-arrow-right"></i>
+                    </p>
+                </div>
+                <div class="list-content">
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img1.jpg">
+                        </div>
+                        <div class="list-item-product-info">
+                            <p class="list-item-product-name">상품명</p>
+                            <p class="list-item-product-avg">
+                                <i class="fa-solid fa-star"></i>
+                                <span>4.5</span>
+                            </p>
+                            <p class="list-item-product-price">
+                                <span>1,000,000</span>원
+                            </p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-item-image">
+                            <img src="./images/board-img2.jpg">
+                        </div>
+                        <div class="list-item-product-info">
+                            <p class="list-item-product-name">상품명</p>
+                            <p class="list-item-product-avg">
+                                <i class="fa-solid fa-star"></i>
+                                <span>4.5</span>
+                            </p>
+                            <p class="list-item-product-price">
+                                <span>1,000,000</span>원
+                            </p>
                         </div>
                     </div>
                     <div class="list-item">
                         <div class="list-item-image">
                             <img src="./images/board-img3.jpg">
                         </div>
+                        <div class="list-item-product-info">
+                            <p class="list-item-product-name">상품명</p>
+                            <p class="list-item-product-avg">
+                                <i class="fa-solid fa-star"></i>
+                                <span>4.5</span>
+                            </p>
+                            <p class="list-item-product-price">
+                                <span>1,000,000</span>원
+                            </p>
+                        </div>
                     </div>
                     <div class="list-item">
                         <div class="list-item-image">
                             <img src="./images/board-img4.jpg">
                         </div>
+                        <div class="list-item-product-info">
+                            <p class="list-item-product-name">상품명</p>
+                            <p class="list-item-product-avg">
+                                <i class="fa-solid fa-star"></i>
+                                <span>4.5</span>
+                            </p>
+                            <p class="list-item-product-price">
+                                <span>1,000,000</span>원
+                            </p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="rank">
+                <div class="list-header">
+                    <p>
+                        <span style="color: var(--icon-strong-color)">
+                            <i class="fa-solid fa-trophy"></i>
+                            좋아
+                        </span> 
+                        이번 달은 여기다!
+                    </p>
+                    <p>
+                        더보기 <i class="fa-solid fa-arrow-right"></i>
+                    </p>
                 </div>
             </div>
         </div>
