@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.4rem;
+        }
+
+        .pagination li {
+            list-style: none;
+        }
+
+        .pagination a {
+            color: var(--text-color);
+            padding: 0.4rem 0.9rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+
+        }
+        .pagination a:hover {
+            color: var(--bg-color);
+            background-color: var(--strong-color);
+        }
+
+        .icon-paging {
+            background-color: var(--main-color);
+            padding: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="pagingArea">
+        <ul class="pagination">
+            <li class="page-item"><a href="" class="page-link icon-paging"><i class="fa-solid fa-less-than"></i></a></li>
+            <li class="page-item"><a href="" class="page-link">1</a></li>
+            <li class="page-item"><a href="" class="page-link">2</a></li>
+            <li class="page-item"><a href="" class="page-link">3</a></li>
+            <li class="page-item"><a href="" class="page-link">4</a></li>
+            <li class="page-item"><a href="" class="page-link">5</a></li>
+            <li class="page-item"><a href="" class="page-link">6</a></li>
+            <li class="page-item"><a href="" class="page-link">7</a></li>
+            <li class="page-item"><a href="" class="page-link">8</a></li>
+            <li class="page-item"><a href="" class="page-link">9</a></li>
+            <li class="page-item"><a href="" class="page-link icon-paging"><i class="fa-solid fa-greater-than"></i></a></li>
+        </ul>
+    </div>
+</body>
+</html>

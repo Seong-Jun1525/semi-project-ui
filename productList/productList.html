@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품목록</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3rem;
+        }
+
+        .header-top {
+            width: 100%;
+            padding: 1.3rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .team-logo {
+            display: flex;
+            align-items: baseline;
+        }
+        .logo-t-image-area {
+            width: 3rem;
+            height: 3rem;
+        }
+        .logo-t {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/logo-t.png);
+            background-size: cover;
+        }
+        .logo-o-image-area {
+            width: 2rem;
+            height: 2rem;
+        }
+        .logo-o {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/logo-o.png);
+            background-size: cover;
+        }
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--main-color);
+        }
+
+        /* 사용자 메뉴 */
+        .user-menu {
+            width: 10%;
+            padding: 0.5rem;
+        }
+
+        .menu-list {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menu-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .menu-list li:hover {
+            cursor: pointer;
+        }
+
+        /* 네비게이션 메뉴 */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-menu {
+            width: 70%;
+        }
+
+        .product-menu li {
+            font-size: 2rem;
+            line-height: 2.5rem;
+            color: var(--main-color);
+            transition: all .3s ease-in-out;
+        }
+        /* 메뉴에 호버했을 때 */
+        .product-menu li:hover {
+            cursor: pointer;
+            color: var(--strong-color);
+        }
+
+        /* 메뉴의 li 요소의 마지막 자식으로 가상요소 생성! */
+        .product-menu li::after {
+            content: "";
+            padding: 0.1rem;
+            width: 100%;
+            transform: scaleX(0);
+            transition: all .3s ease-in-out;
+            background-color: var(--strong-color);
+        }
+        
+        /* 메뉴에 호버했을 때 가상요소에 적용되는 효과 지정! */
+        .product-menu li:hover::after {
+            transform: scaleX(1);
+        }
+
+        .product-menu p {
+            font-size: 1.3rem;
+        }
+
+        /* 페이지네이션 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.4rem;
+        }
+
+        .pagination li {
+            list-style: none;
+        }
+
+        .pagination a {
+            color: var(--text-color);
+            padding: 0.4rem 0.9rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+
+        }
+        .pagination a:hover {
+            color: var(--bg-color);
+            background-color: var(--strong-color);
+        }
+
+        .icon-paging {
+            background-color: var(--main-color);
+            padding: 0.3rem;
+        }
+
+        .heart-icon {
+            color: var(--heart-color);
+        }
+
+        /* 상품 목록 */
+        .product-list-area {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-dropdown-menu-area {
+            width: 100%;
+            text-align: right;
+            margin-bottom: 3rem;
+        }
+
+        
+
+        /* 푸터 */
+        footer {
+            width: 100%;
+            background: var(--main-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5rem;
+        }
+
+        .team-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+            font-size: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        .team-name {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .team-member-git-icon {
+            width: 100%;
+            color: var(--bg-color);
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .team-member-list {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 2rem 3rem;
+            color: var(--bg-color);
+        }
+
+        .copyright {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member-list a,
+        .copyright a {
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <header>
+            <div class="header-top">
+                <div class="team-logo">
+                    <div class="logo-t-image-area"><div class="logo-t"></div></div>
+                    <span class="logo-text">rip:L</span>
+                    <div class="logo-o-image-area"><div class="logo-o"></div></div>
+                    <span class="logo-text">g</span>
+                </div>
+                <div class="user-menu">
+                    <ul class="menu-list">
+                        <!-- 각 메뉴(li) 클릭 시 해당 페이지로 이동 -->
+                        <li data-url="">
+                            <i class="fa-solid fa-user"></i>
+                            <p>My</p>
+                        </li>
+                        <li data-url="">
+                            <i class="fa-solid fa-heart" style="color: var(--heart-color)"></i>
+                            <p>찜</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <nav>
+                <ul class="menu-list product-menu">
+                    <!-- 각 메뉴(li) 클릭 시 해당 페이지로 이동 -->
+                    <li data-url="">
+                        <i class="fa-solid fa-users"></i>
+                        <p>커뮤니티</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>여행상품</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        <p>여행지투표</p>
+                    </li>
+                    <li data-url="">
+                        <i class="fa-solid fa-calculator"></i>
+                        <p>여행경비계산기</p>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="product-list-area">
+                <div class="product-dropdown-menu-area">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            정렬
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">최신순</a></li>
+                            <li><a class="dropdown-item" href="#">리뷰순</a></li>
+                            <li><a class="dropdown-item" href="#">인기순</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-list">
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" />
+                        <div class="product-list-card-body">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pagingArea">
+                <ul class="pagination">
+                    <li class="page-item"><a href="" class="page-link icon-paging"><i class="fa-solid fa-less-than"></i></a></li>
+                    <li class="page-item"><a href="" class="page-link">1</a></li>
+                    <li class="page-item"><a href="" class="page-link">2</a></li>
+                    <li class="page-item"><a href="" class="page-link">3</a></li>
+                    <li class="page-item"><a href="" class="page-link">4</a></li>
+                    <li class="page-item"><a href="" class="page-link">5</a></li>
+                    <li class="page-item"><a href="" class="page-link">6</a></li>
+                    <li class="page-item"><a href="" class="page-link">7</a></li>
+                    <li class="page-item"><a href="" class="page-link">8</a></li>
+                    <li class="page-item"><a href="" class="page-link">9</a></li>
+                    <li class="page-item"><a href="" class="page-link icon-paging"><i class="fa-solid fa-greater-than"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="team-info">
+                    <p class="team-name">Trip:Log</p>
+                    <p><span>Copyright&copy;</span> <span>I UNION I</span></p>
+                </div>
+                <!-- 이름 목록 -->
+                <div class="team-member-info">
+                    <div class="team-member-git-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <ul class="team-member-list">
+                        <li><a href="https://github.com/Kim-ilhyeon">김일현</a></li>
+                        <li><a href="https://github.com/noseungjae">노승재</a></li>
+                        <li><a href="https://github.com/Tokemo">안민영</a></li>
+                        <li><a href="https://github.com/yoonseo0832">이윤서</a></li>
+                        <li><a href="https://github.com/Seong-Jun1525">임성준</a></li>
+                        <li><a href="https://github.com/vocoxo9">정혜영</a></li>
+                    </ul>
+                </div>
+
+                <div class="copyright">
+                    <a href="https://www.flaticon.com/kr/free-icons/" title="야자수 아이콘">야자수 아이콘 제작자: RIkas Dzihab - Flaticon</a>
+                    <a href="https://www.flaticon.com/kr/free-icons/" title="여행 아이콘">여행 아이콘 제작자: Freepik - Flaticon</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
