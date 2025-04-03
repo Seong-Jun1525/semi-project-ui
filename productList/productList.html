@@ -15,6 +15,20 @@
             flex-direction: column;
             margin-bottom: 3rem;
         }
+        
+        .quick {
+            text-align: end;
+            padding: 0.3rem;
+        }
+
+        .user-btn {
+            background-color: var(--main-color);
+            color: var(--strong-color);
+        }
+        .user-btn:hover {
+            background-color: var(--strong-color);
+            color: var(--bg-color);
+        }
 
         .header-top {
             width: 100%;
@@ -55,7 +69,7 @@
 
         /* 사용자 메뉴 */
         .user-menu {
-            width: 10%;
+            width: 15%;
             padding: 0.5rem;
         }
 
@@ -161,13 +175,94 @@
             flex-direction: column;
         }
 
-        .product-dropdown-menu-area {
+        .product-menu-area {
             width: 100%;
-            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
             margin-bottom: 3rem;
         }
 
+        .product-insert-btn-area {
+            font-size: 1.3rem;
+            margin-right: 3rem;
+        }
+
+        .product-insert-btn-area i {
+            font-size: 1.7rem;
+        }
+
+        .product-insert-btn {
+            color: var(--main-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-insert-btn:hover {
+            cursor: pointer;
+            color: var(--strong-color);
+        }
+
+        .dropdown {
+            margin-right: 3rem;
+        }
+
+        .product-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
         
+        .product-list-card {
+            width: 23%;
+            border: 0.3rem solid var(--main-color);
+            border-radius: 1rem;
+            padding: 0.5rem 1rem 1rem 1rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-list-card:hover {
+            cursor: pointer;
+            color: var(--bg-color);
+            background-color: var(--main-color);
+            border-color: var(--strong-color);
+        }
+
+        .product-list-card-header {
+            text-align: end;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            padding: 0 0.3rem;
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-list-card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-list-card-body p {
+            margin-bottom: 0.5rem;
+        }
+
+        .product-list-card-body p:nth-child(1) {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .product-list-card-body p:nth-last-child(1) {
+            font-size: 1.3rem;
+        }
 
         /* 푸터 */
         footer {
@@ -228,6 +323,9 @@
 <body>
     <div id="root">
         <header>
+            <div class="quick">
+                <button type="button" class="btn btn-sm user-btn">로그인/로그아웃</button>
+            </div>
             <div class="header-top">
                 <div class="team-logo">
                     <div class="logo-t-image-area"><div class="logo-t"></div></div>
@@ -274,7 +372,13 @@
         </header>
         <div class="container">
             <div class="product-list-area">
-                <div class="product-dropdown-menu-area">
+                <div class="product-menu-area">
+                    <div class="product-insert-btn-area">
+                        <a class="product-insert-btn">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <!-- 상품등록 -->
+                        </a>
+                    </div>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             정렬
@@ -292,11 +396,216 @@
                         <div class="product-list-card-header">
                             <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
                         </div>
-                        <img src="./images/sample-img.jpg" />
+                        <img src="./images/sample-img.jpg" class="product-image" />
                         <div class="product-list-card-body">
-                            <p></p>
-                            <p></p>
-                            <p></p>
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-list-card">
+                        <div class="product-list-card-header">
+                            <span class="heart-icon"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <img src="./images/sample-img.jpg" class="product-image" />
+                        <div class="product-list-card-body">
+                            <p>상품명</p>
+                            <p>1,000,000 원</p>
+                            <p>
+                                <!-- 평점 값으로 별 색상 채우기 -->
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -310,10 +619,6 @@
                     <li class="page-item"><a href="" class="page-link">3</a></li>
                     <li class="page-item"><a href="" class="page-link">4</a></li>
                     <li class="page-item"><a href="" class="page-link">5</a></li>
-                    <li class="page-item"><a href="" class="page-link">6</a></li>
-                    <li class="page-item"><a href="" class="page-link">7</a></li>
-                    <li class="page-item"><a href="" class="page-link">8</a></li>
-                    <li class="page-item"><a href="" class="page-link">9</a></li>
                     <li class="page-item"><a href="" class="page-link icon-paging"><i class="fa-solid fa-greater-than"></i></a></li>
                 </ul>
             </div>
