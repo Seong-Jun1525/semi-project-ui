@@ -98,24 +98,31 @@
             justify-content: center;
         }
 
-        .product-menu {
+        .nav-list {
             width: 70%;
+            display: flex;
+            justify-content: space-around;
         }
 
-        .product-menu li {
+        .nav-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             font-size: 2rem;
             line-height: 2.5rem;
             color: var(--main-color);
             transition: all .3s ease-in-out;
+            font-weight: 700;
         }
         /* 메뉴에 호버했을 때 */
-        .product-menu li:hover {
+        .nav-list li:hover {
             cursor: pointer;
             color: var(--strong-color);
         }
 
         /* 메뉴의 li 요소의 마지막 자식으로 가상요소 생성! */
-        .product-menu li::after {
+        .nav-list li::after {
             content: "";
             padding: 0.1rem;
             width: 100%;
@@ -125,12 +132,16 @@
         }
         
         /* 메뉴에 호버했을 때 가상요소에 적용되는 효과 지정! */
-        .product-menu li:hover::after {
+        .nav-list li:hover::after {
             transform: scaleX(1);
         }
 
-        .product-menu p {
+        .nav-list p {
             font-size: 1.3rem;
+        }
+
+        .nav-list li.active {
+            color: var(--strong-color);
         }
 
         /* 페이지네이션 */
@@ -152,7 +163,6 @@
             justify-content: center;
             align-items: center;
             height: 40px;
-
         }
         .pagination a:hover {
             color: var(--bg-color);
@@ -162,6 +172,7 @@
         .icon-paging {
             background-color: var(--main-color);
             padding: 0.3rem;
+            color: var(--bg-color) !important;
         }
 
         .heart-icon {
@@ -226,8 +237,8 @@
 
         .product-list-card:hover {
             cursor: pointer;
-            color: var(--bg-color);
-            background-color: var(--main-color);
+            color: var(--strong-color);
+            /* background-color: var(--main-color); */
             border-color: var(--strong-color);
         }
 
@@ -349,13 +360,13 @@
             </div>
 
             <nav>
-                <ul class="menu-list product-menu">
+                <ul class="nav-list">
                     <!-- 각 메뉴(li) 클릭 시 해당 페이지로 이동 -->
                     <li data-url="">
                         <i class="fa-solid fa-users"></i>
                         <p>커뮤니티</p>
                     </li>
-                    <li data-url="">
+                    <li data-url="" class="active">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <p>여행상품</p>
                     </li>
@@ -509,7 +520,6 @@
                             <p>상품명</p>
                             <p>1,000,000 원</p>
                             <p>
-                                <!-- 평점 값으로 별 색상 채우기 -->
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
